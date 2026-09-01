@@ -1,0 +1,24 @@
+local BASE_ATTACK_DURATION = 0.6
+local WINDUP_RATIO = 0.6
+
+local Attacks = {
+    ["88619229552579"] = {
+        SwingSpeed = 1.0,
+        ParryWindow = 0.3
+    },
+
+   
+
+local function GetReactionWindowFromParryTiming(swingSpeed, parryWindow)
+    local speed = swingSpeed or 1.0
+    local window = parryWindow or 0
+    local idealParryMidpoint = window / 2
+
+    local hitboxAppearanceTime =
+        (BASE_ATTACK_DURATION * WINDUP_RATIO) / speed
+
+    local idealReactionTime =
+        hitboxAppearanceTime - idealParryMidpoint
+
+    return math.max(0, idealReactionTime)
+end
