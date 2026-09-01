@@ -5,9 +5,8 @@ local Attacks = {
     ["88619229552579"] = {
         SwingSpeed = 1.0,
         ParryWindow = 0.3
-    },
-
-   
+    }
+}
 
 local function GetReactionWindowFromParryTiming(swingSpeed, parryWindow)
     local speed = swingSpeed or 1.0
